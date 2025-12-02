@@ -8,7 +8,7 @@
     "lint": "biome check",
     "format": "biome format --write",
     "start": "next start",
-    "test": "jest",
+    "test": "vitest run",
     "prod": "next build && next start"
   },
   "dependencies": {
@@ -27,13 +27,11 @@
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.8",
-    "@types/jest": "30.0.0",
     "@types/node": "24.10.1",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
-    "jest": "30.2.0",
-    "ts-jest": "29.4.5",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.0.14"
   },
   "ct3aMetadata": {
     "initVersion": "7.5.1"
