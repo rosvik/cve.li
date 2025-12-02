@@ -1,5 +1,5 @@
+minimumReleaseAge: 1440 # https://pnpm.io/supply-chain-security
 onlyBuiltDependencies:
+  - esbuild
   - sharp
   - unrs-resolver
-# https://pnpm.io/supply-chain-security
-minimumReleaseAge: 1440 # 24 hours
