@@ -3,3 +3,8 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - unrs-resolver
+minimumReleaseAgeExclude:
+  - 'next'
+  - '@next/env'
+  - 'react'
+  - 'react-dom'
