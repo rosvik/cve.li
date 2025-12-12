@@ -19,9 +19,9 @@
     "@trpc/server": "11.7.2",
     "isomorphic-dompurify": "2.33.0",
     "marked": "17.0.1",
-    "next": "16.0.7",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
+    "next": "16.0.10",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
     "redis": "5.10.0",
     "zod": "4.1.13"
   },
