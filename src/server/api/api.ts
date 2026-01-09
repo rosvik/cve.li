@@ -9,6 +9,8 @@ import {
 } from "../../utils/opengraph";
 import { isDefined } from "../../utils/utils";
 import { createTRPCRouter, publicProcedure } from "./trpc";
+import { getHackerNewsUrl } from "../../utils/hacker-news";
+import { HNSearchHit } from "../../types/HNSearch";
 
 const API_BASE_URL = env.API_BASE_URL;
 const GITHUB_TOKEN = env.GITHUB_TOKEN;
@@ -37,6 +39,9 @@ export const appRouter = createTRPCRouter({
     .query<GithubAdvisory[] | undefined>(({ input }) =>
       getGithubAdvisories(input.cveId)
     ),
+  getHackerNewsUrl: publicProcedure
+    .input(z.object({ url: z.string() }))
+    .query<HNSearchHit | undefined>(({ input }) => getHackerNewsUrl(input.url)),
 });
 
 export async function getCVE(id: string) {
