@@ -19,6 +19,9 @@ function ReferenceItem({ reference }: { reference: Reference }) {
   const { data: openGraphData } = api.getOpenGraphData.useQuery({
     url: reference.url,
   });
+  const { data: hackerNewsUrl } = api.getHackerNewsUrl.useQuery({
+    url: reference.url,
+  });
 
   return (
     <a href={reference.url} className={styles.reference_item}>
@@ -39,6 +42,11 @@ function ReferenceItem({ reference }: { reference: Reference }) {
           ))}
         </div>
       </div>
+      {hackerNewsUrl && (
+        <div>
+          {hackerNewsUrl.title} - {hackerNewsUrl.num_comments} comments
+        </div>
+      )}
     </a>
   );
 }
