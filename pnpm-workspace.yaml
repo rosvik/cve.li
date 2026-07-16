@@ -1,3 +1,6 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
 minimumReleaseAge: 1440 # https://pnpm.io/supply-chain-security
 onlyBuiltDependencies:
   - esbuild
