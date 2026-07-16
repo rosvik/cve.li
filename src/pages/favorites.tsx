@@ -1,11 +1,11 @@
 import Link from "next/link";
 import { CveLink } from "../components/CveLink";
 import { PageHead } from "../components/PageHead";
+import { env } from "../env.mjs";
 import styles from "../styles/favorites.module.css";
 import { Published } from "../types/v5-cve";
 import { api } from "../utils/api";
 import { useFavoriteStorage } from "../utils/use-favorite-storage";
-import { env } from "../env.mjs";
 
 function Page({}) {
   const { favoriteIds } = useFavoriteStorage("favorites");

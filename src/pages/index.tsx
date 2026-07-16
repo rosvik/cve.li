@@ -8,13 +8,13 @@ import { useRouter } from "next/router";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { CveLink } from "../components/CveLink";
 import { PageHead } from "../components/PageHead";
+import { env } from "../env.mjs";
 import { getRecentCVEs } from "../server/api/api";
 import styles from "../styles/index.module.css";
 import { Published } from "../types/v5-cve";
 import { api } from "../utils/api";
 import { useFavoriteStorage } from "../utils/use-favorite-storage";
 import { clamp, isPublished } from "../utils/utils";
-import { env } from "../env.mjs";
 
 const MAX_NUMBER_OF_FAVORITES = 5;
 

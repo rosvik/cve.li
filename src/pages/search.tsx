@@ -2,10 +2,10 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Link from "next/link";
 import { CveLink } from "../components/CveLink";
 import { PageHead } from "../components/PageHead";
+import { env } from "../env.mjs";
 import { search } from "../server/api/api";
 import styles from "../styles/favorites.module.css";
 import { Published } from "../types/v5-cve";
-import { env } from "../env.mjs";
 
 type Props = {
   cves: Published[] | undefined;
