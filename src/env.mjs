@@ -41,7 +41,7 @@ const processEnv = {
 // --------------------------
 
 const merged = server.merge(client);
-/** @type z.infer<merged>
+/** @type z.infer<typeof merged>
  *  @ts-ignore - can't type this properly in jsdoc */
 let env = process.env;
 
@@ -60,7 +60,7 @@ if (!!process.env.SKIP_ENV_VALIDATION == false) {
     throw new Error("Invalid environment variables");
   }
 
-  /** @type z.infer<merged>
+  /** @type z.infer<typeof merged>
    *  @ts-ignore - can't type this properly in jsdoc */
   env = new Proxy(parsed.data, {
     get(target, prop) {

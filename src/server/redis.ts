@@ -1,7 +1,16 @@
 import { createClient } from "redis";
 import { env } from "../env.mjs";
 
-type RedisClient = ReturnType<typeof createClient>;
+const createRedisClient = (url: string) =>
+  createClient({
+    url,
+    socket: {
+      keepAlive: true,
+      reconnectStrategy: (retries) => Math.min(retries * 100, 5000),
+    },
+  });
+
+type RedisClient = ReturnType<typeof createRedisClient>;
 
 // Shared Redis client for all operations.
 let clientPromise: Promise<RedisClient> | null = null;
@@ -15,13 +24,7 @@ export function getRedisClient(): Promise<RedisClient> | null {
   if (!env.REDIS_URL) return null;
   if (clientPromise) return clientPromise;
 
-  const client = createClient({
-    url: env.REDIS_URL,
-    socket: {
-      keepAlive: true,
-      reconnectStrategy: (retries) => Math.min(retries * 100, 5000),
-    },
-  });
+  const client = createRedisClient(env.REDIS_URL);
 
   client.on("error", (err) =>
     console.warn("Redis Client Error", err instanceof Error ? err.message : err)
