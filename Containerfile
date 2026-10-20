@@ -1,5 +1,5 @@
 # https://github.com/vercel/next.js/blob/canary/examples/with-docker/Dockerfile
-FROM node:24-alpine AS base
+FROM node:26-alpine AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 ENV NEXT_TELEMETRY_DISABLED=1
@@ -8,7 +8,7 @@ ENV NODE_ENV=production
 ENV CI=true
 ENV NEXT_PUBLIC_PAGE_TITLE="cve.li"
 
-RUN corepack enable
+RUN npm install -g corepack@0.36.0 && corepack enable
 WORKDIR /app
 
 
